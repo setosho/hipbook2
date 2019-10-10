@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Image:</strong>
+  <br>
   <%= image_tag @feed.image.url %>
 </p>
 
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+<%= link_to '画像を編集する', edit_feed_path(@feed) %> |
+<%= link_to '画像一覧へ戻る', feeds_path %>
