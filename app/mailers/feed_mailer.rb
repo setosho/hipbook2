@@ -1,0 +1,2 @@
+class FeedMailer < ApplicationMailer
+end
