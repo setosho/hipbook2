@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def new
      @user = User.new
   end
@@ -17,10 +18,35 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path, notice: "ユーザー情報を変更しました"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to new_user_path, notice: "ユーザーを削除しました"
+  end
+
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :profile,
+                                 :password_confirmation, :image, :image_cache)
+  end
+
+  def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      redirect_to new_session_path
+    end
   end
 end

@@ -1,0 +1,6 @@
+<% if logged_in? %>
+  <h1>登録内容を編集する</h1>
+  <%= render 'form', user: @user %>
+<% else %>
+  <h4>Please login</h4>
+<% end %>
