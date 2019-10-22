@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
-  resources :users
+  resources :users do
+    member do
+      get :favorite_picture
+    end
+  end
 
   resources :feeds do
     collection do

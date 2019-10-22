@@ -36,6 +36,10 @@ class UsersController < ApplicationController
     redirect_to new_user_path, notice: "ユーザーを削除しました"
   end
 
+  def favorite_picture
+    @user = User.find(params[:id])
+    @favorite = current_user.favorites.find_by(feed_id: @feed.id)
+  end
 
   private
 
