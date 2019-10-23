@@ -5,11 +5,11 @@
 
 <table>
   <tbody>
-    <% @favorites.each do |feed| %>
+    <% @favorites.each do |favorite| %>
       <tr>
-        <td><%= feed.user.name %></td>
-        <td><%= image_tag "#{feed.image}", :size =>'200x200' %></td>
-        <td><%= feed.content %></td>
+        <td><%= favorite.user.name %></td>
+        <td><%= image_tag @user.image_url, :size =>'200x200' %></td>
+
       </tr>
     <% end %>
   </tbody>
