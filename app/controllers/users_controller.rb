@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def new
-     @user = User.new
+    @user = User.new
   end
 
   def create

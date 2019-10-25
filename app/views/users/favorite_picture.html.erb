@@ -8,8 +8,8 @@
     <% @favorites.each do |favorite| %>
       <tr>
         <td><%= favorite.user.name %></td>
-        <td><%= image_tag @user.image_url, :size =>'200x200' %></td>
-
+        <td><%= image_tag "#{favorite.image}" %></td>
+        <td><%= favorite.content %></td>
       </tr>
     <% end %>
   </tbody>
