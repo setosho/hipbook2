@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def favorite_picture
     @user = User.find(params[:id])
-    @favorites = current_user.favorites
+    @favorites = current_user.favorite_feeds.all
   end
 
   private
