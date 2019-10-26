@@ -18,8 +18,8 @@
         <td><%= feed.user.name %>の投稿</td>
         <td><%= feed.content %></td>
         <td><%= link_to '詳細', feed %></td>
-        <td><%= link_to '編集', edit_feed_path(feed) %></td>
-        <td><%= link_to '削除', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to '編集', edit_feed_path(feed) %></td>
+        <td><%#= link_to '削除', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
