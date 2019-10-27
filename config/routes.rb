@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+
   resources :users do
     member do
       get :favorite_picture

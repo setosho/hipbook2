@@ -1,5 +1,5 @@
 class FeedsController < ApplicationController
-  before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [:show, :edit, :update, :destroy, :authenticate_user]
   before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   # GET /feeds
@@ -42,7 +42,8 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+        FeedMailer.feed_mail(@feed).deliver
+        format.html { redirect_to @feed, notice: '画像の投稿に成功しました' }
         format.json { render :show, status: :created, location: @feed }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class FeedsController < ApplicationController
   def update
     respond_to do |format|
       if @feed.update(feed_params)
-        format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
+        format.html { redirect_to @feed, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @feed }
       else
         format.html { render :edit }
@@ -70,7 +71,7 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
     respond_to do |format|
-      format.html { redirect_to feeds_url, notice: 'Feed was successfully destroyed.' }
+      format.html { redirect_to feeds_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end
