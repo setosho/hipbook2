@@ -26,6 +26,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -51,3 +52,5 @@ gem 'bcrypt', '3.1.11'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'faker'
