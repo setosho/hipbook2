@@ -42,7 +42,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        FeedMailer.feed_mail(@feed).deliver
+        FeedMailer.feed_mail(@feed).deliver if Rails.env.development?
         format.html { redirect_to @feed, notice: '画像の投稿に成功しました' }
         format.json { render :show, status: :created, location: @feed }
       else

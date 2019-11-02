@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   resources :users do
     member do
