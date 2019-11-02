@@ -88,7 +88,7 @@ class FeedsController < ApplicationController
   end
 
   def authenticate_user
-    if @current_user == params[:id].to_i
+    if current_user != @feed.user_id
       flash[:notice] = "あなたの投稿では無いので操作できません"
       redirect_to feeds_path
     end
