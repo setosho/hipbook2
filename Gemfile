@@ -55,3 +55,5 @@ gem 'mini_magick'
 gem 'faker'
 
 gem 'letter_opener_web'
+
+gem 'brakeman'
